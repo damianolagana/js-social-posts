@@ -73,40 +73,67 @@ for (let i = 0; i < posts.length; i++) {
 /////// FUNZIONI //////
 
 function createElem(index){
+    // CREAZIONE POST
     const newDivPost = document.createElement("div");
     newDivPost.classList.add("post")
     // console.log(newDivPost);
     container.append(newDivPost);
     // console.log(container);
 
+    //*********** CREAZIONE POST HEADER ****************/ 
     const divPostHeader = document.createElement("div");
     divPostHeader.classList.add("post__header");
     // console.log(divPostHeader);
-     newDivPost.append(divPostHeader);
+    newDivPost.append(divPostHeader);
     // console.log(divPostHeader);
 
-    
+    // CREAZIONE BOX DETTAGLI
     // dentro div post-meta ci sono due div
     const postMeta = document.createElement("div");
     postMeta.classList.add("post-meta");
     divPostHeader.append(postMeta);
 
+    // ICONA
     // primo div post-meta__icon
     const postMetaIcon = document.createElement("div");
     postMetaIcon.classList.add("post-meta__icon");
     postMeta.append(postMetaIcon);
+    // IMMAGINE ICONA
     // dentro al div post-meta__icon c'è un immagine
     const imgElem = document.createElement("img");
-    imgElem.src = posts[index].author["image"]
+    imgElem.src = posts[index].author["image"];
     imgElem.classList.add("profile-pic");
-    postMetaIcon.append(imgElem)
+    postMetaIcon.append(imgElem);
 
 
-
+    // BOX INFO
     // secondo div post-meta__data
     const postMetaData = document.createElement("div");
     postMetaData.classList.add("post-meta__data");
     postMeta.append(postMetaData);
+    // in questo div post-meta__data abbiamo altri due div
+
+    // AUTORE
+    // primo div dentro post-meta__data
+    const postMetaAuthor = document.createElement("div");
+    postMetaAuthor.classList.add("post-meta__author");
+    postMetaData.append(postMetaAuthor);
+    postMetaAuthor.innerText = posts[index].author["name"];
+
+    // DATA
+    // secondo div dentro post-meta__data
+    const postMetaTime = document.createElement("div");
+    postMetaTime.classList.add("post-meta__time");
+    postMetaData.append(postMetaTime);
+    postMetaTime.innerText = posts[index].created;
+
+    // *************************************
+
+    // PARAGRAFO BODY POST
+    const postText = document.createElement("div");
+    postText.classList.add("post__text");
+    newDivPost.append(postText);
+    postText.innerText = posts[index].content;
     
 
 
