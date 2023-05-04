@@ -100,10 +100,10 @@ function createElem(index){
     postMeta.append(postMetaIcon);
     // IMMAGINE ICONA
     // dentro al div post-meta__icon c'è un immagine
-    const imgElem = document.createElement("img");
-    imgElem.src = posts[index].author["image"];
-    imgElem.classList.add("profile-pic");
-    postMetaIcon.append(imgElem);
+    const imgIcon = document.createElement("img");
+    imgIcon.src = posts[index].author["image"];
+    imgIcon.classList.add("profile-pic");
+    postMetaIcon.append(imgIcon);
 
 
     // BOX INFO
@@ -129,13 +129,56 @@ function createElem(index){
 
     // *************************************
 
+    // *************BODY POST*********//
     // PARAGRAFO BODY POST
     const postText = document.createElement("div");
     postText.classList.add("post__text");
     newDivPost.append(postText);
     postText.innerText = posts[index].content;
-    
 
+    // IMMAGINE BODY POST
+    const imgPost = document.createElement("img");
+    imgPost.classList.add("post__image");
+    imgPost.src = posts[index].media;
+    newDivPost.append(imgPost);
+    // ************************************
+
+    // ************** POST FOOTER *************//
+    // POST FOOTER BOX
+    const footerBox = document.createElement("div");
+    footerBox.classList.add("post__footer");
+    newDivPost.append(footerBox);
+
+    // LIKE BOX
+    const likeBox = document.createElement("div");
+    likeBox.classList.add("like", "js-like");
+    footerBox.append(likeBox);
+
+    //  LIKE CTA BOX
+    const likeAction = document.createElement("div");
+    likeAction.classList.add("likes__cta");
+    likeBox.append(likeAction);
+
+
+    // LINK BOTTONI
+    const linkButtons =document.createElement("a");
+    linkButtons.classList.add("like-button","js-like-button");
+    linkButtons.href ="#";
+    linkButtons.setAttribute("data-postid",posts[index].id);
+    likeAction.append(linkButtons);
+
+    // ****BOTTONI****//
+    // BOTTONE MI PIACE
+    const likeButton = document.createElement("i");
+    likeButton.classList.add("like-button__icon", "fas", "fa-thumbs-up");
+    likeButton.setAttribute("aria-hidden","true");
+    linkButtons.append(likeButton);
+
+    // SCRITTA MI PIACE
+    const likeText = document.createElement("span");
+    likeText.classList.add("like-button__label");
+    likeText.innerText = "Mi Piace";
+    linkButtons.append(likeText);
 
 
 

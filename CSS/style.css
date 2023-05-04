@@ -91,6 +91,7 @@ h1 {
 
 .post__image {
     margin-bottom: 16px;
+    width: 100%;
 }
 
 .post__image img {
@@ -117,6 +118,11 @@ h1 {
 
 .like-button__label {
     font-weight: bold;
+}
+
+.like-button__icon{
+    font-weight: bold;
+    padding-right: 6px;    
 }
 
 .like-button--liked {
