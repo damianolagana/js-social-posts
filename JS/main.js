@@ -55,3 +55,24 @@ const posts = [
         "created": "2021-03-05"
     }
 ];
+
+
+const container = document.getElementById("container");
+console.log(container)
+
+posts.forEach(() => {
+    createElem();
+})
+
+
+/////// FUNZIONI //////
+
+function createElem(){
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("post");
+    console.log(newDiv);
+
+    
+
+
+}
