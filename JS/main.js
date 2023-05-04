@@ -57,8 +57,7 @@ const posts = [
 ];
 
 
-const container = document.getElementById("container");
-console.log(container)
+
 
 posts.forEach(() => {
     createElem();
@@ -68,11 +67,14 @@ posts.forEach(() => {
 /////// FUNZIONI //////
 
 function createElem(){
-    const newDiv = document.createElement("div");
-    newDiv.classList.add("post");
-    console.log(newDiv);
+    const newDivContainer = document.createElement('div');
+    newDivContainer.setAttribute("id","container")
+    console.log(newDivContainer);
 
-    
+    newDivContainer.classList.add('posts-list')
+    console.log(newDivContainer);
+
+
 
 
 }
