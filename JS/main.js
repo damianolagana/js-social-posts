@@ -57,22 +57,57 @@ const posts = [
 ];
 
 
+const container = document.getElementById("container");
 
+for (let i = 0; i < posts.length; i++) {
+    const element = posts[i];
+    createElem(i)
+    
+}
 
-posts.forEach(() => {
-    createElem();
-})
+// posts.forEach(() => {
+//     createElem();
+// })
 
 
 /////// FUNZIONI //////
 
-function createElem(){
-    const newDivContainer = document.createElement('div');
-    newDivContainer.setAttribute("id","container")
-    console.log(newDivContainer);
+function createElem(index){
+    const newDivPost = document.createElement("div");
+    newDivPost.classList.add("post")
+    // console.log(newDivPost);
+    container.append(newDivPost);
+    // console.log(container);
 
-    newDivContainer.classList.add('posts-list')
-    console.log(newDivContainer);
+    const divPostHeader = document.createElement("div");
+    divPostHeader.classList.add("post__header");
+    // console.log(divPostHeader);
+     newDivPost.append(divPostHeader);
+    // console.log(divPostHeader);
+
+    
+    // dentro div post-meta ci sono due div
+    const postMeta = document.createElement("div");
+    postMeta.classList.add("post-meta");
+    divPostHeader.append(postMeta);
+
+    // primo div post-meta__icon
+    const postMetaIcon = document.createElement("div");
+    postMetaIcon.classList.add("post-meta__icon");
+    postMeta.append(postMetaIcon);
+    // dentro al div post-meta__icon c'è un immagine
+    const imgElem = document.createElement("img");
+    imgElem.src = posts[index].author["image"]
+    imgElem.classList.add("profile-pic");
+    postMetaIcon.append(imgElem)
+
+
+
+    // secondo div post-meta__data
+    const postMetaData = document.createElement("div");
+    postMetaData.classList.add("post-meta__data");
+    postMeta.append(postMetaData);
+    
 
 
 
