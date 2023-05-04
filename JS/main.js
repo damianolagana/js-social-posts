@@ -149,20 +149,21 @@ function createElem(index){
     footerBox.classList.add("post__footer");
     newDivPost.append(footerBox);
 
-    // LIKE BOX
+    //************* LIKE BOX ************/ 
     const likeBox = document.createElement("div");
-    likeBox.classList.add("like", "js-like");
+    likeBox.classList.add("likes", "js-like");
     footerBox.append(likeBox);
 
-    //  LIKE CTA BOX
+    //****** LIKE CTA BOX ********/  
     const likeAction = document.createElement("div");
     likeAction.classList.add("likes__cta");
+    likeAction.setAttribute("id","likeCTA");
     likeBox.append(likeAction);
 
 
     // LINK BOTTONI
     const linkButtons =document.createElement("a");
-    linkButtons.classList.add("like-button","js-like-button");
+    linkButtons.classList.add("like-button","js-likes-button");
     linkButtons.href ="#";
     linkButtons.setAttribute("data-postid",posts[index].id);
     likeAction.append(linkButtons);
@@ -171,7 +172,7 @@ function createElem(index){
     // BOTTONE MI PIACE
     const likeButton = document.createElement("i");
     likeButton.classList.add("like-button__icon", "fas", "fa-thumbs-up");
-    likeButton.setAttribute("aria-hidden","true");
+    likeButton.setAttribute("id","thumbsUp");
     linkButtons.append(likeButton);
 
     // SCRITTA MI PIACE
@@ -180,6 +181,24 @@ function createElem(index){
     likeText.innerText = "Mi Piace";
     linkButtons.append(likeText);
 
+    // ************
+    // CONTATORE LIKES BOX
+    const counterBox = document.createElement("div");
+    counterBox.classList.add("likes__counter");
+    likeBox.append(counterBox);
 
+    // LIKE COUNTER
+    const likeCounter = document.createElement("span");
+    likeCounter.classList.add("js-likes-counter");
+    likeCounter.setAttribute("id","like-counter-1");
+    likeCounter.innerText = posts[index].likes;
+    counterBox.innerText = `Piace a ${likeCounter} persone`;
 
 }
+
+// ********** EVENTI ********
+
+document.getElementById("likeCTA").addEventListener("click",function(){
+    const thumbsUp = document.getElementById("thumbsUp");
+    thumbsUp.style.color = "red"
+})
