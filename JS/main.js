@@ -187,17 +187,14 @@ function createElem(index){
     likeBox.append(counterBox);
 
     // LIKE COUNTER
-    const likeCounter = document.createElement("span");
-    likeCounter.classList.add("js-likes-counter");
-    likeCounter.setAttribute("id","like-counter-1");
-    likeCounter.innerText = posts[index].likes;
-    counterBox.innerText = `Piace a ${likeCounter} persone`;
+    counterBox.innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone`;
 
 }
 
 // ********** EVENTI ********
 
 const buttons = document.getElementsByClassName("like-button");
+const contatori = document.getElementsByClassName("js-likes-counter")
 
 for (let i = 0; i < buttons.length; i++) {
     const currentBtn = buttons[i];
@@ -207,6 +204,11 @@ for (let i = 0; i < buttons.length; i++) {
         const clickedClass = "like-button--liked"
         if(!currentBtn.classList.contains(clickedClass)){
             currentBtn.classList.add(clickedClass);
+
+            let likes = parseInt(contatori[i].innerText);
+            likes++;
+
+            contatori[i].innerText = likes;
 
         }
 
