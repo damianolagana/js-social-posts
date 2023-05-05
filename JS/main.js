@@ -210,8 +210,15 @@ for (let i = 0; i < buttons.length; i++) {
 
             contatori[i].innerText = likes;
 
+        }else{
+            currentBtn.classList.remove(clickedClass);
+            let likes = parseInt(contatori[i].innerText);
+            likes--;
+            contatori[i].innerText = likes;
+            
         }
 
+        
 
     })
     
