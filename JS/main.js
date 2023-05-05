@@ -187,7 +187,7 @@ function createElem(index){
     likeBox.append(counterBox);
 
     // LIKE COUNTER
-    counterBox.innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone`;
+    counterBox.innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter">${posts[index].likes}</b> persone`;
 
 }
 
