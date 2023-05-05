@@ -164,7 +164,6 @@ function createElem(index){
     // LINK BOTTONI
     const linkButtons =document.createElement("a");
     linkButtons.classList.add("like-button","js-likes-button");
-    linkButtons.href ="#";
     linkButtons.setAttribute("data-postid",posts[index].id);
     likeAction.append(linkButtons);
 
@@ -198,7 +197,20 @@ function createElem(index){
 
 // ********** EVENTI ********
 
-document.getElementById("likeCTA").addEventListener("click",function(){
-    const thumbsUp = document.getElementById("thumbsUp");
-    thumbsUp.style.color = "red"
-})
+const buttons = document.getElementsByClassName("like-button");
+
+for (let i = 0; i < buttons.length; i++) {
+    const currentBtn = buttons[i];
+
+    currentBtn.addEventListener("click",function(e){
+        e.preventDefault();
+        const clickedClass = "like-button--liked"
+        if(!currentBtn.classList.contains(clickedClass)){
+            currentBtn.classList.add(clickedClass);
+
+        }
+
+
+    })
+    
+}
